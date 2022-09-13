@@ -1,9 +1,11 @@
-public abstract class Employee {
+public class Employee {
 	//instance variable
 	private String name;
 	private String ssn;
+	private CompensationModel compModel;
 	
-	public Employee(String name, String ssn) {
+	public Employee(String name, String ssn, CompensationModel model) {
+		this.compModel = model;
 		this.name = name;
 		this.ssn = ssn;
 	}
@@ -25,12 +27,12 @@ public abstract class Employee {
 	}
 	
 	public String toString() {
-		return String.format("%s: %s, %s: %s%n", 
+		return String.format("%s: %s, %s: %s, %s: %f\n", 
 				"Name", this.name, "Social Security Number", 
-				this.ssn);
+				this.ssn, "earnings", compModel.earnings());
 	}
 	
-	public abstract double earnings();
+	// public abstract double earnings();
 	
 
 }
